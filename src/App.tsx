@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -6,6 +6,16 @@ import "./App.css";
 function App() {
   const [count, setCount] = useState(0);
 
+  const [numberList, setNumberList] = useState<number[]>([]);
+
+  useEffect(() => {
+    const arr = [];
+    for (let i = 0; i < 10; i++) {
+      arr.push(Math.floor(Math.random() * 100));
+    }
+    setNumberList(arr);
+  }, []);
+  console.log(numberList);
   return (
     <>
       <div className="flex justify-evenly">
